@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :require_user_logged_in, only: [:index, :show, :edit]
+  before_action :forbid_login_user, only: [:new]
+  
+  
   def new
     @user=User.new
   end

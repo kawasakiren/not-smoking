@@ -1,0 +1,21 @@
+// Place all the styles related to the toppages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-image{
+     background-image: url("/non-smoking-main.jpg");
+     height: 550px;
+     background-repeat: no-repeat;
+     background-size: cover;
+     padding: 150px 0 100px 0;
+     text-align: center;
+     color: white;
+}
+
+.title-message{
+    font-size: 0.7em;
+}
+
+.btn-wrapper{
+    padding-top: 150px;
+    padding-right: 60px;
+}

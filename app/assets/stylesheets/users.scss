@@ -1,3 +1,64 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.image-wrapper{
+    margin: 20px 0 20px 220px;
+    
+}
+
+.image-wrapper .profile-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    
+}
+
+.show-image-wrapper{
+    margin: 0 0 0 255px;
+}
+
+.show-image{
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.user-name{
+    font-size: 200%;
+}
+
+.image-icon{
+    
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+}
+
+.list-unstyled .media div:nth-child(1){
+    margin:0 20px 0 10px;
+    
+}
+
+.list-unstyled .media div:nth-child(2){
+    line-height: 100px;
+    width: 300px;
+}
+
+.list-unstyled .media div:nth-child(3){
+    line-height: 100px;
+    margin-left: 10px;
+}
+
+
+.show-btn-wrapper{
+   margin-left: 20px;
+}
+
+.show-btn{
+    
+}
+
+.pagination{
+    margin-left: 200px;
+}

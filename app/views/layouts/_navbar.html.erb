@@ -1,9 +1,9 @@
-<header class="mb-4" style="height: 70px; width: 100%; opacity: 0.8; position: fixed; z-index: 10; top: 0;">
+<header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #DDDDDD">
     <% if logged_in? %>
-      <%= link_to NotSmoking, "/users/#{session[:user_id]}", class: "navbar-brand" %>
+      <a class="navbar-brand" href="<%= "/users/#{session[:user_id]}" %>"><img src="/logo.png" class="logo" alt="ロゴ"></a>
     <% else %>
-      <a class="navbar-brand" href="/">NotSmoking</a>
+      <a class="navbar-brand" href="/"><img src="/logo.png" class="logo" alt="ロゴ"></a>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
@@ -12,6 +12,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
+          <li class="nav-item"><%= link_to '記録', new_post_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ユーザ一覧', users_path, class: 'nav-link' %></li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>

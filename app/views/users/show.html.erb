@@ -1,2 +1,60 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+        <div class="user-profile">
+            <div class="show-image-wrapper">
+                <%= image_tag @user.image_name.url, class: "icon show-image image-icon" %>
+            </div>
+            <p class="text-center user-name mb-0"><%= @user.name %></p>
+        </div>
+        <div>
+            <ul class="nav justify-content-center mb-3" style="align-items: center;"> <!--flexアイテムにvertical-align: middleは効かなさそうなので親要素flexコンテナーにalign-items: centerを -->
+                <% if current_user == @user %>
+                    <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link">フォロー&nbsp;&nbsp;  <span><%= @count_followings %></span></a></li>
+                    <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link">フォロワー&nbsp;&nbsp;  <span><%= @count_followers %></span></a></li>
+                <% else %>
+                    <li class="nav-item">
+                        <a href="<%= followings_user_path(@user) %>" class="nav-link">フォロー&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <span><%= @count_followings %></span></a>
+                        <a href="<%= followers_user_path(@user) %>" class="nav-link">フォロワー&nbsp;&nbsp;  <span><%= @count_followers %></span></a>
+                    </li>
+                    <li class="nav-item show-btn-wrapper">
+                        <%= render "relationships/follow_button", user: @user%>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+        
+        
+    </div>
+</div>
+
+<div class="text-center">
+  <h1>喫煙記録</h1>
+</div>
+
+<div class="row">
+    <div class="graph col-sm-6 offset-sm-3">
+        <%= line_chart @user.posts.group(:date).sum(:number), colors: ["#CD853F", "#666"] %>
+        <table class="table">
+            <tr>
+                <th class="text-center">日付</th>
+                <th class="text-center">本数</th>
+                <th class="text-center">時間</th>
+            </tr>
+            <% @records.each do |record| %>
+                
+                <tr>
+                    <td class="text-center"><%= record.date %></td>
+                    <td class="text-center"><%= record.number %></td>
+                    <td class="text-center"><%= record.created_at %></td>
+                </tr>
+               
+            <% end %>
+            
+            
+            
+        </table>
+        <%= paginate @records %>
+    </div>
+    
+    
+</div>

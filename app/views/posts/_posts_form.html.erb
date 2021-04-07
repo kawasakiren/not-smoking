@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= form_with(model: post, local: true) do |f| %>
+      <div class="form-group mt-3">
+        <%= f.label :date, '日付' %>
+        <%= f.date_field :date, class: 'form-control date-form' %>
+      </div>
+      <div class="form-group mt-2">
+        <%= f.label :number, '本数' %>
+        <%= f.number_field :number, class: 'form-control' %>
+      </div>
+      <%= f.submit '追加', class: 'btn btn-primary btn-block mt-5' %>
+    <% end %>
+  </div>
+
+
+</div>

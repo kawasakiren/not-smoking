@@ -1,0 +1,23 @@
+<div class="heading text-center" >
+  <h1>喫煙記録(編集)</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= form_with(model: @post, local: true) do |f| %>
+      <div class="form-group mt-3">
+        <%= f.label :date, '日付' %>
+        <%= f.date_field :date, class: 'form-control date-form' %>
+      </div>
+      <div class="form-group mt-2">
+        <%= f.label :number, '本数' %>
+        <%= f.number_field :number, class: 'form-control' %>
+      </div>
+      <div class="mt-5 edit-btn-wrapper">
+        <div style="width: 250px"><%= f.submit '更新', class: 'btn btn-primary btn-block' %></div>
+        <div style="width: 250px"><%= link_to "削除", "user/#{current_user.id}", method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-block' %></div>
+      </div>
+      
+    <% end %>
+  </div>
+</div>

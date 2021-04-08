@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .image-wrapper{
-    margin: 20px 0 20px 220px;
+    margin: 20px 0;
     
 }
 
@@ -10,18 +10,15 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
+
     
 }
 
 .show-image-wrapper{
-    margin: 0 0 0 255px;
+    
+
 }
 
-.show-image{
-    width: 100px;
-    height: auto;
-    border-radius: 50%;
-}
 
 .user-name{
     font-size: 200%;
@@ -61,4 +58,29 @@
 
 .pagination{
     margin-left: 200px;
+}
+
+// .perfect-circle{
+//     position: relative;
+//     width: 150px;
+//     height: auto;
+//     border-radius: 50%;
+// }
+
+
+//  .perfect-circle:before {
+//   content: "";
+//   display: block;
+//   padding-top: 100%;
+//  }
+//  .inner {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//  }
+
+.anchor{
+    color: black;
 }

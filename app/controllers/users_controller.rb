@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :followings, :followers]
   before_action :forbid_login_user, only: [:new]
-  
+  before_action :correct_user, only: [:edit, :update]
   
   def new
     @user=User.new
@@ -39,9 +39,7 @@ class UsersController < ApplicationController
 
   def edit
     @user=User.find(params[:id])
-    unless current_user.id == @user.id
-      redirect_to "/users/#{current_user.id}"
-    end
+
     
   end
 
@@ -84,7 +82,8 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-    unless current_user.id == params[:id]
+    @user=User.find(params[:id])
+    unless current_user.id == @user.id
       redirect_to "/users/#{current_user.id}"
     end
   end

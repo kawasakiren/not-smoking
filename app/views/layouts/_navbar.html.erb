@@ -1,5 +1,5 @@
 <header class="mb-4">
-  <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #DDDDDD">
+  <nav class="navbar navbar-expand-sm navbar-light" style="background-color: rgb(192, 192, 192);">
     <% if logged_in? %>
       <a class="navbar-brand" href="<%= "/users/#{session[:user_id]}" %>"><img src="/logo.png" class="logo" alt="ロゴ"></a>
     <% else %>
@@ -10,7 +10,7 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav nav-color">
         <% if logged_in? %>
           <li class="nav-item"><%= link_to '記録', new_post_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ユーザ一覧', users_path, class: 'nav-link' %></li>

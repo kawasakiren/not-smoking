@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    
+    @post = Post.find(params[:id])
   end
 
   def update
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    flash[:success] = '削除しました。'
     redirect_back(fallback_location: "/users/#{current_user.id}")
   end
   

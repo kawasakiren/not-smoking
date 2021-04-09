@@ -39,6 +39,10 @@
                 <th class="text-center">日付</th>
                 <th class="text-center">本数</th>
                 <th class="text-center">時間</th>
+                <% if current_user == @user %>
+                    <th></th>
+                    <th></th>
+                <% end %>
             </tr>
             <% @records.each do |record| %>
                 
@@ -46,6 +50,10 @@
                     <td class="text-center"><%= record.date %></td>
                     <td class="text-center"><%= record.number %></td>
                     <td class="text-center"><%= record.created_at.to_s(:datetime_jp) %></td>
+                    <% if current_user == @user %>
+                        <td><%= link_to '編集', edit_post_path(record) %></td>
+                        <td><%= link_to '削除', post_path(record), method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>
+                    <% end %>
                 </tr>
                
             <% end %>

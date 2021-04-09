@@ -3,10 +3,10 @@
         <ul class="list-unstyled">
           <% users.each do |user| %>
             <li class="media">
-              <div class="mr-2">
+              <div>
                 <%= image_tag user.image_name.url, class: "icon image-icon "%>  
               </div>
-              <div class="ml-5">
+              <div>
                 <% if current_user == user %> 
                   <p class="user-name"><%= user.name %></p>
                 <% else %>
@@ -18,12 +18,12 @@
                   <% if current_user.following?(user) %>
                     <%= form_with(model: current_user.relationships.find_by(follow_id: user.id), local: true, method: :delete) do |f| %>
                       <%= hidden_field_tag :follow_id, user.id %>
-                      <%= f.submit '  フォロー中  ', class: 'btn btn-primary btn-lg' %>
+                      <%= f.submit '  フォロー中  ', class: 'btn btn-primary btn-md responsive-btn' %>
                     <% end %>
                   <% else %>
                     <%= form_with(model: current_user.relationships.build, local: true) do |f| %>
                       <%= hidden_field_tag :follow_id, user.id %>
-                      <%= f.submit 'フォローする', class: 'btn btn-outline-primary btn-lg' %>
+                      <%= f.submit 'フォローする', class: 'btn btn-outline-primary btn-md responsive-btn' %>
                     <% end %>
                   <% end %>
                 <% end %>

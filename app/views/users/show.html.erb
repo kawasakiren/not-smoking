@@ -45,7 +45,7 @@
                 <tr>
                     <td class="text-center"><%= record.date %></td>
                     <td class="text-center"><%= record.number %></td>
-                    <td class="text-center"><%= record.created_at %></td>
+                    <td class="text-center"><%= record.created_at.to_s(:datetime_jp) %></td>
                 </tr>
                
             <% end %>

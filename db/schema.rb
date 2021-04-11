@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_053022) do
+ActiveRecord::Schema.define(version: 2021_04_10_033153) do
+
+  create_table "follow_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "follow_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follow_id"], name: "index_follow_requests_on_follow_id"
+    t.index ["user_id"], name: "index_follow_requests_on_user_id"
+  end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date"
@@ -40,6 +49,8 @@ ActiveRecord::Schema.define(version: 2021_04_07_053022) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "follow_requests", "users"
+  add_foreign_key "follow_requests", "users", column: "follow_id"
   add_foreign_key "posts", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

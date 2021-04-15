@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     end
     counts(@user)
     
-    @records = @user.posts.page(params[:page]).per(8)
+    @records = @user.posts.order(id: :desc).page(params[:page]).per(8)
   end
 
   def create
